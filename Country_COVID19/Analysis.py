@@ -300,3 +300,50 @@ print('義大利 R0 :\n', r0_Ita.reshape(49, 1))
 
 print("===============================================================================================================")
 
+"""
+畫出 R0 :
+
+1. 中國
+2. 韓國
+3. 義大利
+
+"""
+
+# 1.
+plt.plot(t_C, r0_C, 'o', color = 'steelblue')
+plt.title('China (R0) 2020/1/16 ~ 2020/3/5')
+plt.xlabel('Day')
+plt.ylabel('R0')
+plt.xticks(np.arange(1, 51, 1))
+plt.grid()
+plt.show()
+
+# 2.
+plt.plot(t_K, r0_K, 'o', color = 'steelblue')
+plt.title('South Korea (R0) 2020/1/20 ~ 2020/4/7')
+plt.xlabel('Day')
+plt.ylabel('R0')
+plt.xticks(np.arange(1, 80, 1))
+plt.grid()
+plt.show()
+
+# 3.
+plt.plot(t_Ita, r0_Ita, 'o', color = 'steelblue')
+plt.title('Italy (R0) 2020/2/17 ~ 2020/4/5')
+plt.xlabel('Day')
+plt.ylabel('R0')
+plt.xticks(np.arange(1, 50, 1))
+plt.grid()
+plt.show()
+
+"""
+印出平均 R0 :
+
+1. 中國
+2. 韓國
+3. 義大利
+
+"""
+
+
+
