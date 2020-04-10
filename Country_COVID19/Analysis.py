@@ -157,6 +157,8 @@ Beta_Ita = (IC_tplus_Ita - IC_t_Ita) / (I_t_Ita * (N_Ita - IC_t_Ita))
 
 print('義大利 Beta :\n', Beta_Ita.reshape(49, 1))
 
+print("===============================================================================================================")
+
 """
 畫出 Beta :
 
@@ -192,3 +194,77 @@ plt.ylabel('Beta')
 plt.xticks(np.arange(1, 50, 1))
 plt.grid()
 plt.show()
+
+"""
+估計 Gamma :
+
+1. 中國
+2. 韓國
+3. 義大利
+
+"""
+
+# 1.
+R_t_C = yC_C[0:50]
+R_tplus_C = yC_C[1:51]
+
+Gamma_C = (R_tplus_C - R_t_C) / I_t_C
+
+print('中國 Gamma :\n', Gamma_C.reshape(50, 1))
+
+print("===============================================================================================================")
+
+# 2.
+R_t_K = yK_C[0:79]
+R_tplus_K = yK_C[1:80]
+
+Gamma_K = (R_tplus_K - R_t_K) / I_t_K
+
+print('韓國 Gamma :\n', Gamma_K.reshape(79, 1))
+
+print("===============================================================================================================")
+
+# 3.
+R_t_Ita = yIta_C[0:49]
+R_tplus_Ita = yIta_C[1:50]
+
+Gamma_Ita = (R_tplus_Ita - R_t_Ita) / I_t_Ita
+
+print('義大利 Gamma :\n', Gamma_Ita.reshape(49, 1))
+
+"""
+畫出 Gamma :
+
+1. 中國
+2. 韓國
+3. 義大利
+
+"""
+
+# 1.
+plt.plot(t_C, Gamma_C, 'o', color = 'steelblue')
+plt.title('China (Gamma) 2020/1/16 ~ 2020/3/5')
+plt.xlabel('Day')
+plt.ylabel('Gamma')
+plt.xticks(np.arange(1, 51, 1))
+plt.grid()
+plt.show()
+
+# 2.
+plt.plot(t_K, Gamma_K, 'o', color = 'steelblue')
+plt.title('South Korea (Gamma) 2020/1/20 ~ 2020/4/7')
+plt.xlabel('Day')
+plt.ylabel('Gamma')
+plt.xticks(np.arange(1, 80, 1))
+plt.grid()
+plt.show()
+
+# 3.
+plt.plot(t_Ita, Gamma_Ita, 'o', color = 'steelblue')
+plt.title('Italy (Gamma) 2020/2/17 ~ 2020/4/5')
+plt.xlabel('Day')
+plt.ylabel('Gamma')
+plt.xticks(np.arange(1, 50, 1))
+plt.grid()
+plt.show()
+
