@@ -324,23 +324,3 @@ plt.legend(loc = "upper right")
 plt.show()
 
 print("===============================================================================================================")
-
-"""
-計算 R-square 評估擬合:
-
-1. 鑽石公主號
-2. 2003 香港 SARS 
-
-"""
-
-def Rsquare(y, f):
-    """Define the R-square function"""
-    SSR = sum((f - y.mean())**2)
-    SST = sum((y - y.mean())**2)
-    r2 = SSR / SST
-    return r2
-
-# 1.
-print("鑽石公主號 Logistic curve fitting 確定係數(R-square) =", Rsquare(yID, logisticD(xD, rD)))
-print("鑽石公主號差分方程的出的 curve 確定係數 (R-square) =", Rsquare(yID, logisticD(xD, 3711 * MBeta_D)))
-print(Rsquare(new_yISR, logisticSR(new_xSR, rSR)))
