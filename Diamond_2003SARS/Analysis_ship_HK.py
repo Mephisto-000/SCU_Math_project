@@ -59,7 +59,7 @@ plt.ylabel('Poplution')
 date =('04', '05', '06', '07', '08', '09', '10', '12', '13', '15', '16', '17', '18', '19', '20', '26')
 plt.xticks(np.arange(0, 16, 1), date)
 plt.grid()
-plt.legend()
+plt.legend(loc = "upper left")
 plt.show()
 
 # 2.
