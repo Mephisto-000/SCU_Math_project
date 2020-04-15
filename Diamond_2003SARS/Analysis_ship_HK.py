@@ -242,7 +242,7 @@ public health countermeasures, Journal of Travel Medicine, P.11
 2. 2003 香港 SARS 
 Reference :
 (i). Thembinkosi Mkhatshwa, Anna Mummert, Modeling Super-spreading Events for Infectious Disease: Case Study SARS,
-IAENG Internatioonal Journal of Applied Mathematics, P.4
+IAENG International Journal of Applied Mathematics, P.4
 
 """
 
@@ -295,17 +295,17 @@ def gs_SR(r, n):
     """Define the geometric series of 2003 Hong Kong SARS"""
     return (((r**n-1) - 1) / (r - 1)) + 94
 
-r0_M1_SR = 1650 * MBeta_SR * (1 / 0.0821)    # 差分方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_M2_SR = 1650 * MBeta_SR * (1 / 0.1923)    # 差分方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.1923
+r0_M1_SR = 1650 * MBeta_SR * (1 / 0.0821)    # 差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
+r0_M2_SR = 1650 * MBeta_SR * (1 / 0.1923)    # 差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
 
-r0_L1_SR = rSR * (1 / 0.0821)                # Logistic 方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_L2_SR = rSR * (1 / 0.1923)                # Logistic 方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.1923
+r0_L1_SR = rSR * (1 / 0.0821)                # Logistic 方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
+r0_L2_SR = rSR * (1 / 0.1923)                # Logistic 方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
 
 print("\n2003 香港 SARS :")
-print("差分方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_D1) =", r0_M1_SR)
-print("差分方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_D2) =", r0_M2_SR)
-print("Logistic 方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_L1) =", float(r0_L1_SR))
-print("Logistic 方程所得出的 Beta ，和 IAENG Internatioonal Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_L2) =", float(r0_L2_SR))
+print("差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_D1) =", r0_M1_SR)
+print("差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_D2) =", r0_M2_SR)
+print("Logistic 方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_L1) =", float(r0_L1_SR))
+print("Logistic 方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_L2) =", float(r0_L2_SR))
 
 fix1_x_SR = np.arange(1, 16, 0.01)
 fix3_x_SR = np.arange(1, 6, 0.01)
