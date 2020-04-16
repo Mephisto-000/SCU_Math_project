@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}  
+\title{數學思通}                          
+\author{Ling-Hao Lin}                        
+\date{}                               
+\usepackage{xeCJK}                   
+\setCJKmainfont{標楷體}               
+\usepackage{amsthm,amssymb,amsmath}  
+\usepackage{enumitem}
+\usepackage{derivative}                 
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{problem}{Problem}     
+\newtheorem*{mydef}{Definition}    
+
+
+
+
+\xeCJKsetup{CJKmath}                  %使數學式裡可以打中文字
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\section*{SIR model}
+\end{center}
+\begin{align*}
+\odv{S}{t}&= -\beta SI \\
+\quad\\
+\odv{I}{t}&= \beta SI-\gamma\\
+\quad\\
+\odv{R}{t}&= \gamma I\\
+\quad
+\end{align*}
+
+\begin{itemize}
+\item[S]: the susceptibles who are capable of catching the disease and becoming infected.
+\item[I]: the infectives who have the disease and can transmit it.
+\item[R]: the removed class consisting of the individuals who are recovered with immunity or dead due to the disease.
+\item[$\beta$]: the infection transmission rate.
+\item[$\gamma$]: the rate of recovery.
+\item[N]: total population, $N=S+I+R$.
+\item[t]: per day.
+\end{itemize}
+
+
+\quad
+\begin{mydef}[$R_{0}$, basic reproduction number]
+\qquad
+$$R_{0}=\frac{\beta N}{\gamma}.$$
+\qquad
+
+\end{mydef}
+
+\newpage
+
+\subsection{求鑽石公主號和 2003 香港 SARS的 $R_{0}$，引用論文中的$\gamma$。}
+\qquad	
+ \begin{itemize}
+ \item[方法 1.]
+利用差分方程的方法估計$\beta$。
+\qquad
+    \begin{align*}
+\odv{S}{t}\cong \frac{\Delta S}{\Delta t}&=\frac{S(t+1)-S(t)}{(t+1)-t}\\
+\quad\\
+                                         &=S(t+1)-S(t)=-\beta S(t)I(t)\\
+\quad\\
+                        &\Rightarrow\beta=\frac{S(t)-S(t+1)}{S(t)I(t)}.\\
+     \end{align*}
+   
+ \item[方法 2.]
+利用 Logistic function curve fitting 估計$\beta$。
+\qquad
+\begin{itemize}
+  \item[$P(t)$]: the size of a population at time t.
+  \item[K]: carrying capacity.
+  \item[r]: intrinsic growth rate.
+  \item[C]: constant.
+\end{itemize}
+\begin{align*}
+\odv{P}{t}&=P(t)(r-\frac{r}{K}P(t))\\
+\quad\\
+\Rightarrow P(t)&=\frac{K}{1+Ce^{-rt}}.\\
+\end{align*}
+
+\end{itemize}
+
+
+
+\subsection{觀察$R_{0}$}
+\begin{itemize}
+\item[T]: 病毒平均傳播天數。
+\item[$I_{c}(m)$]: m天的累積病例數。
+\end{itemize}
+
+$$I_{c}(m)=1+R_{0}+R_{0}^2+...+R_{0}^n=\frac{R_{0}^{n+1}-1}{R_{0}-1}\mbox{ , }n=\frac{m}{T}.$$
+
+
+
+
+
+\newpage
+
+$$S\xrightarrow{{\beta SI}}I\xrightarrow{{\gamma I}}R$$
+
+\end{document}
