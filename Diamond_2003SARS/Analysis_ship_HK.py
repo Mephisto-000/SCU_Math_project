@@ -205,11 +205,11 @@ fix1_x_D = np.arange(0, 15, 0.01)    # 設定擬合的自變數範圍，設定�
 fix2_x_D = np.arange(0, 50, 0.01)    # 設定擬和的自變數範圍，把時間範圍拉長
 
 plt.plot(xD, yID, 'o', color = 'steelblue', label = 'Data')
-plt.plot(fix1_x_D, logistic(fix1_x_D, r_all_D, N_all_D, C_all_D), '-', color = 'darkorchid', label = 'All days')
-plt.plot(fix1_x_D, logistic(fix1_x_D, r_4_6_D, N_4_6_D, C_4_6_D), '-', color = 'red', label = '4~6 days')
-plt.plot(fix1_x_D, logistic(fix1_x_D, r_7_9_D, N_7_9_D, C_7_9_D), '-', color = 'darkgreen', label = '7~9 days')
-plt.plot(fix1_x_D, logistic(fix1_x_D, r_10_12_D, N_10_12_D, C_10_12_D), '-', color = 'brown', label = '10~12 days')
-plt.title("Logistic Fitting Beta(Diamond Priness' ship)")
+plt.plot(fix1_x_D, logistic(fix1_x_D, r_all_D, N_all_D, C_all_D), '-', color = 'red', label = 'All days', linewidth = 4)
+# plt.plot(fix1_x_D, logistic(fix1_x_D, r_4_6_D, N_4_6_D, C_4_6_D), '-', color = 'red', label = '4~6 days')
+# plt.plot(fix1_x_D, logistic(fix1_x_D, r_7_9_D, N_7_9_D, C_7_9_D), '-', color = 'darkgreen', label = '7~9 days')
+# plt.plot(fix1_x_D, logistic(fix1_x_D, r_10_12_D, N_10_12_D, C_10_12_D), '-', color = 'brown', label = '10~12 days')
+plt.title("Logistic Fitting Curve (Diamond Princess' ship)")
 plt.xlabel("Date (February, 2020)")
 plt.ylabel("Population")
 date =('04', '05', '06', '07', '08', '09', '10', '12', '13', '15', '16', '17', '18', '19', '20', '26')
@@ -218,9 +218,9 @@ plt.grid()
 plt.legend()
 plt.show()
 
-bestBeta_D = r_all_D / 705
 
-print("\n所求較佳 Beta :", bestBeta_D)
+print("\n以下求得的 N 值取小數點後一位四捨五入至整數 :")
+print("所求較佳 N :", N_all_D)
 
 print("===============================================================================================================")
 
@@ -296,12 +296,12 @@ fix2_x_SR = np.arange(1, 50, 0.01)    # 設定擬和的自變數範圍，把時�
 
 
 plt.plot(xSR, yISR, 'o', color = 'steelblue', label = 'Data')
-plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_30_SR, N_20_30_SR, C_20_30_SR), '-', color = 'darkorchid', label = '20 ~ 30 Days')
-plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_30_40_SR, N_30_40_SR, C_30_40_SR), '-', color = 'red', label = '30 ~ 40 Days')
-plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_40_SR, N_20_40_SR, C_20_40_SR), '-', color = 'darkgreen', label = '20 ~ 40 Days')
-plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_50_SR, N_20_50_SR, C_20_50_SR), '-', color = 'brown', label = '20 ~ 50 Days')
-plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_10_50_SR, N_10_50_SR, C_10_50_SR), '-', color = 'darkblue', label = '10 ~ 50 Days')
-plt.title("Logistic Fitting Beta(2003 Hong Kong SARS)")
+plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_30_SR, N_20_30_SR, C_20_30_SR), '-', color = 'red', label = '20 ~ 30 Days', linewidth = 2)
+# plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_30_40_SR, N_30_40_SR, C_30_40_SR), '-', color = 'black', label = '30 ~ 40 Days')
+plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_40_SR, N_20_40_SR, C_20_40_SR), '-', color = 'gold', label = '20 ~ 40 Days', linewidth = 2)
+plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_20_50_SR, N_20_50_SR, C_20_50_SR), '-', color = 'purple', label = '20 ~ 50 Days', linewidth = 2)
+# plt.plot(fix1_x_SR, logistic(fix1_x_SR, r_10_50_SR, N_10_50_SR, C_10_50_SR), '-', color = 'darkblue', label = '10 ~ 50 Days')
+plt.title("Logistic Fitting Curve (2003 Hong Kong SARS)")
 plt.xlabel("Day (March ~ June, 2003)")
 plt.ylabel("Population")
 plt.xticks(np.arange(0, 83, 1))
@@ -310,13 +310,10 @@ plt.legend()
 plt.show()
 
 
-bestBeta_1_SR = r_20_30_SR / 1650
-bestBeta_2_SR = r_20_40_SR / 1650
-bestBeta_3_SR = r_20_50_SR / 1650
-
-print("\n所求較佳 Beta (20~30 天):", bestBeta_1_SR)
-print("所求較佳 Beta (20~40 天):", bestBeta_2_SR)
-print("所求較佳 Beta (20~50 天):", bestBeta_3_SR)
+print("\n以下求得的 N 值取小數點後一位四捨五入至整數 :")
+print("所求較佳 N (20~30 天):", N_20_30_SR)
+print("所求較佳 N (20~40 天):", N_20_40_SR)
+print("所求較佳 N (20~50 天):", N_20_50_SR)
 
 print("===============================================================================================================")
 
@@ -347,36 +344,72 @@ def gs_D(r, n):
 
 MBeta_D = Beta_D.mean()
 
-r0_M1_D = 3711 * MBeta_D * 4    # 差分方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/4
-r0_M2_D = 3711 * MBeta_D * 10   # 差分方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/10
-r0_M3_D = 3711 * MBeta_D * 20   # 差分方程所得出的 Beta ，和 Lencet 上的 Gamma : 1/20
 
-r0_L1_D = r_all_D * 4                # Logistic 方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/4
-r0_L2_D = r_all_D * 10               # Logistic 方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/10
-r0_L3_D = r_all_D * 20               # Logistic 方程所得出的 Beta ，和 Lencet 上的 Gamma : 1/20
+r0_M1_D = 3711 * MBeta_D * 7     # 差分方程所得出的 Beta ， 7   天病程
+r0_M2_D = 3711 * MBeta_D * 8     # 差分方程所得出的 Beta ， 8   天病程
+r0_M3_D = 3711 * MBeta_D * 9     # 差分方程所得出的 Beta ， 9   天病程
+r0_M4_D = 3711 * MBeta_D * 10    # 差分方程所得出的 Beta ， 10  天病程
+r0_M5_D = 3711 * MBeta_D * 11    # 差分方程所得出的 Beta ， 11  天病程
+r0_M6_D = 3711 * MBeta_D * 12    # 差分方程所得出的 Beta ， 12  天病程
+r0_M7_D = 3711 * MBeta_D * 13    # 差分方程所得出的 Beta ， 13  天病程
+r0_M8_D = 3711 * MBeta_D * 14    # 差分方程所得出的 Beta ， 14  天病程
+r0_M9_D = 3711 * MBeta_D * 20    # 差分方程所得出的 Beta ，和 Lencet 上的 Gamma : 1/20
+
+
+r0_L1_D = 819 * MBeta_D * 7     # 用 Logistic fitting 所得出的 N = 819 ， 7  天病程
+r0_L2_D = 819 * MBeta_D * 8     # 用 Logistic fitting 所得出的 N = 819 ， 8 天病程
+r0_L3_D = 819 * MBeta_D * 9     # 用 Logistic fitting 所得出的 N = 819 ， 9 天病程
+r0_L4_D = 819 * MBeta_D * 10    # 用 Logistic fitting 所得出的 N = 819 ， 10 天病程
+r0_L5_D = 819 * MBeta_D * 11    # 用 Logistic fitting 所得出的 N = 819 ， 11 天病程
+r0_L6_D = 819 * MBeta_D * 12    # 用 Logistic fitting 所得出的 N = 819 ， 12 天病程
+r0_L7_D = 819 * MBeta_D * 13    # 用 Logistic fitting 所得出的 N = 819 ， 13 天病程
+r0_L8_D = 819 * MBeta_D * 14    # 用 Logistic fitting 所得出的 N = 819 ， 14 天病程
+r0_L9_D = 819 * MBeta_D * 20    # 用 Logistic fitting 所得出的 N = 819 ，和 Lencet 上的 Gamma : 1/20
+
+
+
 
 print("鑽石公主號 :")
-print("差分方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/4, R0(假設為 R0_D1) =", r0_M1_D)
-print("差分方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/10, R0(假設為 R0_D2) =", r0_M2_D)
-print("差分方程所得出的 Beta ，和 Lencet 上的 Gamma : 1/20, R0(假設為 R0_D3) =", r0_M3_D)
-print("Logistic 方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/4, R0(假設為 R0_L1) =", float(r0_L1_D))
-print("Logistic 方程所得出的 Beta ，和 Journal of Travel Medicine 上的 Gamma : 1/10, R0(假設為 R0_L2) =", float(r0_L2_D))
-print("Logistic 方程所得出的 Beta ，和 Lencet 上的 Gamma : 1/20, R0(假設為 R0_L3) =", float(r0_L3_D))
+print("差分方程所得出的 Beta ，病程 : 7 天 , R0 =", r0_M1_D)
+print("差分方程所得出的 Beta ，病程 : 8 天 , R0 =", r0_M2_D)
+print("差分方程所得出的 Beta ，病程 : 9 天 , R0 =", r0_M3_D)
+print("差分方程所得出的 Beta ，病程 : 10 天 , R0 =", r0_M4_D)
+print("差分方程所得出的 Beta ，病程 : 11 天 , R0 =", r0_M5_D)
+print("差分方程所得出的 Beta ，病程 : 12 天 , R0 =", r0_M6_D)
+print("差分方程所得出的 Beta ，病程 : 13 天 , R0 =", r0_M7_D)
+print("差分方程所得出的 Beta ，病程 : 14 天 , R0 =", r0_M8_D)
+print("差分方程所得出的 Beta ，病程 : 20 天 , R0 =", r0_M9_D)
 
-fix1_x_D = np.arange(1, 15, 0.01)
-fix2_x_D = np.arange(1, 7, 0.01)
-fix3_x_D = np.arange(1, 4.5, 0.01)
-fix4_x_D = np.arange(1, 9, 0.01)
-fix5_x_D = np.arange(1, 5, 0.01)
-fix6_x_D = np.arange(1, 4, 0.01)
+print("\n用 Logistic fitting 得出的 N ，病程 : 7 天 , R0 =", r0_L1_D)
+print("用 Logistic fitting 得出的 N ，病程 : 8 天 , R0 =", r0_L2_D)
+print("用 Logistic fitting 得出的 N ，病程 : 9 天 , R0 =", r0_L3_D)
+print("用 Logistic fitting 得出的 N ，病程 : 10 天 , R0 =", r0_L4_D)
+print("用 Logistic fitting 得出的 N ，病程 : 11 天 , R0 =", r0_L5_D)
+print("用 Logistic fitting 得出的 N ，病程 : 12 天 , R0 =", r0_L6_D)
+print("用 Logistic fitting 得出的 N ，病程 : 13 天 , R0 =", r0_L7_D)
+print("用 Logistic fitting 得出的 N ，病程 : 14 天 , R0 =", r0_L8_D)
+print("用 Logistic fitting 得出的 N ，病程 : 20 天 , R0 =", r0_L9_D)
+
+
+
+fix1_x_D = np.arange(1, 9, 0.01)
+fix2_x_D = np.arange(1, 8, 0.01)
+fix3_x_D = np.arange(1, 7.5, 0.01)
+fix4_x_D = np.arange(1, 7, 0.01)
+fix5_x_D = np.arange(1, 6.55, 0.01)
+fix6_x_D = np.arange(1, 6.5, 0.01)
+fix7_x_D = np.arange(1, 6.25, 0.01)
+fix8_x_D = np.arange(1, 6, 0.01)
 
 plt.plot(xD, yID, 'o', color = 'steelblue', label = 'Data')
-plt.plot(fix1_x_D, gs_D(r0_M1_D, fix1_x_D), '-', color = 'darkgreen', label = 'R0_D1')
-plt.plot(fix2_x_D, gs_D(r0_M2_D, fix2_x_D), '-', color = 'darkorchid', label = 'R0_D2')
-plt.plot(fix3_x_D, gs_D(r0_M3_D, fix3_x_D), '-', color = 'red', label = 'R0_D3')
-plt.plot(fix4_x_D, gs_D(r0_L1_D, fix4_x_D), '-', color = 'brown', label = 'R0_L1')
-plt.plot(fix5_x_D, gs_D(r0_L2_D, fix5_x_D), '-', color = 'goldenrod', label = 'R0_L2')
-plt.plot(fix6_x_D, gs_D(r0_L3_D, fix6_x_D), '-', color = 'black', label = 'R0_L3')
+plt.plot(fix1_x_D, gs_D(r0_M1_D, fix1_x_D), '-', color = 'darkgreen', label = 'R0: 2.05')
+plt.plot(fix2_x_D, gs_D(r0_M2_D, fix2_x_D), '-', color = 'darkorchid', label = 'R0: 2.34')
+plt.plot(fix3_x_D, gs_D(r0_M3_D, fix3_x_D), '-', color = 'red', label = 'R0: 2.63')
+plt.plot(fix4_x_D, gs_D(r0_M4_D, fix4_x_D), '-', color = 'brown', label = 'R0: 2.92')
+plt.plot(fix5_x_D, gs_D(r0_M5_D, fix5_x_D), '-', color = 'goldenrod', label = 'R0: 3.22' )
+plt.plot(fix6_x_D, gs_D(r0_M6_D, fix6_x_D), '-', color = 'black', label = 'R0: 3.51')
+plt.plot(fix7_x_D, gs_D(r0_M7_D, fix7_x_D), '-', color = 'maroon', label = 'R0: 3.80')
+plt.plot(fix8_x_D, gs_D(r0_M8_D, fix8_x_D), '-', color = 'tomato', label = 'R0: 4.09')
 plt.title("R0 (Diamond Priness' ship)")
 plt.xlabel('Date (February, 2020)')
 plt.ylabel('Poplution')
@@ -395,49 +428,62 @@ Beta_SR = Beta_SR[~ np.isnan(Beta_SR)]    # 去掉資料中的 NaN 值
 
 MBeta_SR = Beta_SR.mean()
 
-r0_M1_SR = 1650 * MBeta_SR * (1 / 0.0821)    # 差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_M2_SR = 1650 * MBeta_SR * (1 / 0.1923)    # 差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
+r0_L1_1SR = MBeta_SR * N_20_30_SR * 7         # 差分方程得出的平均Beta、20~30 天的 N = 1471、病程 7 天
+r0_L1_2SR = MBeta_SR * N_20_30_SR * 14        # 差分方程得出的平均Beta、20~30 天的 N = 1471、病程 14 天
+r0_L1_3SR = MBeta_SR * N_20_30_SR * 21        # 差分方程得出的平均Beta、20~30 天的 N = 1471、病程 21 天
+r0_L1_4SR = MBeta_SR * N_20_30_SR * 28        # 差分方程得出的平均Beta、20~30 天的 N = 1471、病程 28 天
 
-r0_L1_1SR = r_20_30_SR * (1 / 0.0821)        # Logistic 方程所得出的 Beta(20~30 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_L1_2SR = r_20_30_SR * (1 / 0.1923)        # Logistic 方程所得出的 Beta(20~30 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
+r0_L2_1SR = MBeta_SR * N_20_40_SR * 7         # 差分方程得出的平均Beta、20~40 天的 N = 1601、病程 7 天
+r0_L2_2SR = MBeta_SR * N_20_40_SR * 14        # 差分方程得出的平均Beta、20~40 天的 N = 1601、病程 14 天
+r0_L2_3SR = MBeta_SR * N_20_40_SR * 21        # 差分方程得出的平均Beta、20~40 天的 N = 1601、病程 21 天
+r0_L2_4SR = MBeta_SR * N_20_40_SR * 28        # 差分方程得出的平均Beta、20~40 天的 N = 1601、病程 28 天
 
-r0_L2_1SR = r_20_40_SR * (1 / 0.0821)        # Logistic 方程所得出的 Beta(20~40 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_L2_2SR = r_20_40_SR * (1 / 0.1923)        # Logistic 方程所得出的 Beta(20~40 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
+r0_L3_1SR = MBeta_SR * N_20_50_SR * 7         # 差分方程得出的平均Beta、20~50 天的 N = 1618、病程 7 天
+r0_L3_2SR = MBeta_SR * N_20_50_SR * 14        # 差分方程得出的平均Beta、20~50 天的 N = 1618、病程 14 天
+r0_L3_3SR = MBeta_SR * N_20_50_SR * 21        # 差分方程得出的平均Beta、20~50 天的 N = 1618、病程 21 天
+r0_L3_4SR = MBeta_SR * N_20_50_SR * 28        # 差分方程得出的平均Beta、20~50 天的 N = 1618、病程 28 天
 
-r0_L3_1SR = r_20_50_SR * (1 / 0.0821)        # Logistic 方程所得出的 Beta(20~50 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821
-r0_L3_2SR = r_20_50_SR * (1 / 0.1923)        # Logistic 方程所得出的 Beta(20~50 天) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923
 
 
 print("\n2003 香港 SARS :")
-print("差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_D1) =", r0_M1_SR)
-print("差分方程所得出的 Beta ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_D2) =", r0_M2_SR)
-print("Logistic 方程所得出的 Beta (20~30 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_L1-1) =", r0_L1_1SR)
-print("Logistic 方程所得出的 Beta (20~30 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_L1-2) =", r0_L2_1SR)
-print("Logistic 方程所得出的 Beta (20~40 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_L2-1) =", r0_L2_1SR)
-print("Logistic 方程所得出的 Beta (20~40 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_L2-2) =", r0_L2_2SR)
-print("Logistic 方程所得出的 Beta (20~50 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.0821, R0(假設為 R0_L3-1) =", r0_L3_1SR)
-print("Logistic 方程所得出的 Beta (20~50 days) ，和 IAENG International Journal of Applied Mathematics 上的 Gamma : 0.1923, R0(假設為 R0_L3-2) =", r0_L3_1SR)
+print("差分方程得出的平均Beta、20~30 天的 N = 1471、病程 7 天，則 R0 =", r0_L1_1SR)
+print("差分方程得出的平均Beta、20~30 天的 N = 1471、病程 14 天，則 R0 =", r0_L1_2SR)
+print("差分方程得出的平均Beta、20~30 天的 N = 1471、病程 21 天，則 R0 =", r0_L1_3SR)
+print("差分方程得出的平均Beta、20~30 天的 N = 1471、病程 28 天，則 R0 =", r0_L1_4SR)
+
+print("差分方程得出的平均Beta、20~40 天的 N = 1601、病程 7 天，則 R0 =", r0_L2_1SR)
+print("差分方程得出的平均Beta、20~40 天的 N = 1601、病程 14 天，則 R0 =", r0_L2_2SR)
+print("差分方程得出的平均Beta、20~40 天的 N = 1601、病程 21 天，則 R0 =", r0_L2_3SR)
+print("差分方程得出的平均Beta、20~40 天的 N = 1601、病程 28 天，則 R0 =", r0_L2_4SR)
+
+print("差分方程得出的平均Beta、20~50 天的 N = 1618、病程 7 天，則 R0 =", r0_L3_1SR)
+print("差分方程得出的平均Beta、20~50 天的 N = 1618、病程 14 天，則 R0 =", r0_L3_2SR)
+print("差分方程得出的平均Beta、20~50 天的 N = 1618、病程 21 天，則 R0 =", r0_L3_3SR)
+print("差分方程得出的平均Beta、20~50 天的 N = 1618、病程 28 天，則 R0 =", r0_L3_4SR)
 
 
 
-fix1_x_SR = np.arange(1, 16, 0.01)
-fix3_x_SR = np.arange(1, 6, 0.01)
-fix4_x_SR = np.arange(1, 12, 0.01)
+fix1_x_SR = np.arange(1, 12, 0.01)
+fix2_x_SR = np.arange(1, 8.25, 0.01)
+fix3_x_SR = np.arange(1, 7, 0.01)
+
 
 plt.plot(xSR, yISR, 'o', color = 'steelblue', label = 'Data')
-plt.plot(fix1_x_SR, gs_SR(r0_M1_SR, fix1_x_SR), '-', color = 'darkblue', label = 'R0_D1')
-plt.plot(fix4_x_SR, gs_SR(r0_L1_1SR, fix4_x_SR), '-', color = 'darkgreen', label = 'R0_L1-1')
-plt.plot(fix1_x_SR, gs_SR(r0_L1_2SR, fix1_x_SR), '-', color = 'darkorchid', label = 'R0_L2-1')
-plt.plot(fix1_x_SR, gs_SR(r0_L2_1SR, fix1_x_SR), '-', color = 'red', label = 'R0_L2-1')
-plt.plot(fix1_x_SR, gs_SR(r0_L2_2SR, fix1_x_SR), '-', color = 'brown', label = 'R0_L2-2')
-plt.plot(fix1_x_SR, gs_SR(r0_L3_1SR, fix1_x_SR), '-', color = 'goldenrod', label = 'R0_L3-1')
-plt.plot(fix1_x_SR, gs_SR(r0_L3_2SR, fix1_x_SR), '-', color = 'black', label = 'R0_L3-2')
+plt.plot(fix1_x_SR, gs_SR(r0_L1_2SR, fix1_x_SR), '-', color = 'darkgreen', label = 'N: 1471, R0: 1.54')
+plt.plot(fix2_x_SR, gs_SR(r0_L1_3SR, fix2_x_SR), '-', color = 'darkorchid', label = 'N: 1471, R0: 2.30')
+plt.plot(fix3_x_SR, gs_SR(r0_L1_4SR, fix3_x_SR), '-', color = 'red', label = 'N: 1471, R0: 3.07')
+plt.plot(fix1_x_SR, gs_SR(r0_L2_2SR, fix1_x_SR), '-', color = 'brown', label = 'N: 1601, R0: 1.67')
+plt.plot(fix2_x_SR, gs_SR(r0_L2_3SR, fix2_x_SR), '-', color = 'goldenrod', label = 'N: 1601, R0: 2.51')
+plt.plot(fix3_x_SR, gs_SR(r0_L2_4SR, fix3_x_SR), '-', color = 'black', label = 'N: 1601, R0: 3.34')
+plt.plot(fix1_x_SR, gs_SR(r0_L3_2SR, fix1_x_SR), '-', color = 'maroon', label = 'N: 1618, R0: 1.69')
+plt.plot(fix2_x_SR, gs_SR(r0_L3_3SR, fix2_x_SR), '-', color = 'tomato', label = 'N: 1618, R0: 2.53')
+plt.plot(fix3_x_SR, gs_SR(r0_L3_4SR, fix3_x_SR), '-', color = 'darkblue', label = 'N: 1618, R0: 3.38')
 plt.title("R0 (2003 Hong Kong SARS)")
 plt.xlabel('Day (March ~ June, 2003)')
 plt.ylabel('Poplution')
 plt.xticks(np.arange(1, 83, 1))
 plt.grid()
-plt.legend(loc = "upper right")
+plt.legend(loc = "lower right")
 plt.show()
 
 print("===============================================================================================================")
@@ -473,16 +519,16 @@ def plotSIR_D(N, beta, gamma, T):
     plt.plot(RES[:, 0], '--', color='darkblue', label='Susceptible')
     plt.plot(RES[:, 1], '--', color='red', label='Infection')
     plt.plot(RES[:, 2], '--', color='green', label='Recovery')
-    plt.axhline(y=705, color='black', linestyle='--', label="705 people")
+    plt.axhline(y=N, color='black', linestyle='--', label="N: %i" % N)
     plt.title('SIR Model (Beta = %g, Viral Shedding : %s days)' % tuple(v))
     plt.legend(loc = 'best')
     plt.xticks(np.arange(0, T+1, T/10))
     plt.xlabel('Day')
-    plt.ylabel('Number')
+    plt.ylabel('Population')
     plt.grid()
     plt.show()
 
-def plotIR_D(N, beta, gamma, T):
+def plotIR_D(N, beta, gamma, T, col, d):
     I_0 = 1
     R_0 = 0
     S_0 = N - I_0 - R_0
@@ -499,20 +545,30 @@ def plotIR_D(N, beta, gamma, T):
 
     T_range = np.arange(0, T + 1)
     RES = spi.odeint(SIR, INI, T_range)
-    v = [beta, gamma]
-    plt.plot(RES[:, 1]+RES[:, 2], '--', color='darkblue', label='I+R')
-    # plt.axhline(y=705, color='r', linestyle='-', label = "705 people")
-    plt.title('I+R Plot ( Beta = %g, Viral Shedding : %s days)' % tuple(v))
-    plt.legend(loc = 'best')
+    plt.plot(RES[:, 1]+RES[:, 2], '--', color=col, label='%s' % d)
+    plt.title('I+R Plot, N: 3711, Beta: %g' % beta)
     plt.xticks(np.arange(0, T+1, T/10))
     plt.xlabel('Day')
-    plt.ylabel('Number')
-    plt.grid()
-    plt.show()
+    plt.ylabel('Population')
 
 
-plotSIR_D(705, 0.0005627521369527202, 20, 100)
-plotIR_D(705, 0.0005627521369527202, 20, 50)
+plotSIR_D(3711, MBeta_D, 14, 100)
+plotIR_D(3711, MBeta_D, 7, 50, 'darkgreen', 'Gamma: 1/7')
+plotIR_D(3711, MBeta_D, 8, 50, 'darkorchid', 'Gamma: 1/8')
+plotIR_D(3711, MBeta_D, 9, 50, 'darkgray', 'Gamma: 1/9')
+plotIR_D(3711, MBeta_D, 10, 50, 'brown', 'Gamma: 1/10')
+plotIR_D(3711, MBeta_D, 11, 50, 'goldenrod', 'Gamma: 1/11')
+plotIR_D(3711, MBeta_D, 12, 50, 'black', 'Gamma: 1/12')
+plotIR_D(3711, MBeta_D, 13, 50, 'maroon', 'Gamma: 1/13')
+plotIR_D(3711, MBeta_D, 14, 50, 'tomato', 'Gamma: 1/14')
+plt.plot(xD, yID, 'o', color='steelblue', label='Data')
+plt.legend(loc = 'best')
+plt.grid()
+plt.show()
+
+
+
+
 
 # 2.
 def plotSIR_SR(N, beta, gamma, T):
@@ -537,17 +593,17 @@ def plotSIR_SR(N, beta, gamma, T):
     plt.plot(RES[:, 0], '--', color='darkblue', label='Susceptible')
     plt.plot(RES[:, 1], '--', color='red', label='Infection')
     plt.plot(RES[:, 2], '--', color='green', label='Recovery')
-    plt.axhline(y=1650, color='black', linestyle='--', label="1650 people")
+    plt.axhline(y=N, color='black', linestyle='--', label="N: %i" % N)
     plt.title('SIR Model (Beta = %g, Viral Shedding : %s days)' % tuple(v))
     plt.legend(loc = 'best')
     plt.xticks(np.arange(0, T+1, T/25))
     plt.xlabel('Day')
-    plt.ylabel('Number')
+    plt.ylabel('Population')
     plt.grid()
     plt.show()
 
-def plotIR_SR(N, beta, gamma, T):
-    I_0 = 1
+def plotIR_SR(N, beta, gamma, T, col, d):
+    I_0 = 95
     R_0 = 0
     S_0 = N - I_0 - R_0
     INI = (S_0, I_0, R_0)
@@ -561,19 +617,24 @@ def plotIR_SR(N, beta, gamma, T):
         Y[2] = (1/gamma) * X[1]
         return Y
 
-    T_range = np.arange(0, T + 1)
+    T_range = np.arange(1, T+1)
     RES = spi.odeint(SIR, INI, T_range)
     v = [beta, gamma]
-    plt.plot(RES[:, 1]+RES[:, 2], '--', color='darkblue', label='I+R')
-    # plt.axhline(y=1650, color='r', linestyle='-', label = "1650 people")
-    plt.title('I+R Plot ( Beta = %g, Viral Shedding : %s days)' % tuple(v))
-    plt.legend(loc = 'best')
-    plt.xticks(np.arange(0, T+1, T/25))
+    plt.plot(RES[:, 1]+RES[:, 2], '--', color=col, label='%s' % d)
+    plt.title('I+R Plot, N: 1618, Beta: %g' % beta)
+    plt.xticks(np.arange(1, T+1, T/16))
     plt.xlabel('Day')
-    plt.ylabel('Number')
-    plt.grid()
-    plt.show()
+    plt.ylabel('Population')
 
 
-plotSIR_SR(1650, 7.709111261222057e-05, int(1/0.0821), 200)
-plotIR_SR(1650, 7.709111261222057e-05, int(1/0.0821), 200)
+
+plotSIR_SR(1618, MBeta_SR, 28, 160)
+plotIR_SR(1618, MBeta_SR, 7, 160, 'darkgreen', 'Gamma: 1/7')
+plotIR_SR(1618, MBeta_SR, 14, 160, 'darkorchid', 'Gamma: 1/14')
+plotIR_SR(1618, MBeta_SR, 21, 160, 'red', 'Gamma: 1/21')
+plotIR_SR(1618, MBeta_SR, 28, 160, 'brown', 'Gamma: 1/28')
+plt.plot(xSR, yISR, 'o', color='steelblue', label='Data')
+plt.legend(loc = 'best')
+plt.grid()
+plt.show()
+

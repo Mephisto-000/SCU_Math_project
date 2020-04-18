@@ -81,7 +81,8 @@ def plotIR_D(N, beta, gamma, T):
     RES = spi.odeint(SIR, INI, T_range)
     v = [beta, gamma]
     plt.plot(RES[:, 1]+RES[:, 2], '--', color='darkblue', label='I+R')
-    plt.axhline(y=705, color='r', linestyle='-', label = "705 people")
+    plt.plot(xD, yID, 'o', color='steelblue', label='Data')
+    plt.axhline(y=N, color='r', linestyle='-', label = "%i" % N)
     plt.title('I+R Plot ( Beta = %g, Viral Shedding : %s days)' % tuple(v))
     plt.legend(loc = 'best')
     plt.xticks(np.arange(0, T+1, T/10))
@@ -108,13 +109,14 @@ def plotIR_SR(N, beta, gamma, T):
     RES = spi.odeint(SIR, INI, T_range)
     v = [beta, gamma]
     plt.plot(RES[:, 1]+RES[:, 2], '--', color='darkblue', label='I+R')
-    plt.axhline(y=1650, color='r', linestyle='-', label = "1650 people")
+    # plt.axhline(y=1650, color='r', linestyle='-', label = "1650 people")
     plt.title('I+R Plot ( Beta = %g, Viral Shedding : %s days)' % tuple(v))
     plt.legend(loc = 'best')
     plt.xticks(np.arange(0, T+1, T/25))
     plt.xlabel('Day')
     plt.ylabel('Number')
     plt.grid()
+    plt.show()
 
 
 
