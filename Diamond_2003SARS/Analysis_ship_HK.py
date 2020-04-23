@@ -597,7 +597,6 @@ def plotIR_SR(N, beta, gamma, T, col, d):
 
     T_range = np.arange(1, T+1)
     RES = spi.odeint(SIR, INI, T_range)
-    v = [beta, gamma]
 
     plt.plot(T_range, RES[:, 1]+RES[:, 2], '-', color=col, label='%s' % d)
     plt.title('I+R Plot, N: 1618, Beta: %g' % beta)
