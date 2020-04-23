@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import scipy.integrate as spi
 from scipy.optimize import curve_fit
 
-#test
+
 """
 鑽石公主號和2003香港SARS的比較 :
 
