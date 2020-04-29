@@ -95,7 +95,7 @@ DS_T = np.array(dataD['S'][0:-1])       # S(t)
 deltaS = DS_T - DS_Tplus                # S(t) - S(t+1)
 SmI = (S * yID)[1::]                    # S(t) * I(t)
 
-Beta_D = deltaS / SmI                    # (S(t) - S(t+1)) / (S(t) * I(t))
+Beta_D = deltaS / SmI                   # (S(t) - S(t+1)) / (S(t) * I(t))
 
 print("Bata(鑽石公主號): \n", Beta_D.reshape(15,1))
 
@@ -151,7 +151,15 @@ Logistic Fitting :
 
 """
 def logistic(t, r, N, C):
-    """Define the Logistic Function"""
+    """
+    Define the Logistic Function:
+
+    t : time
+    r : intrinsic growth rate
+    N : carring capacity
+    C : constant
+
+    """
     return (N / (1 + C * np.exp(-r * t)))
 
 # 1.
