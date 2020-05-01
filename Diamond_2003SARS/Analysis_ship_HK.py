@@ -223,7 +223,7 @@ fix2_x_D = np.arange(0, 50, 0.01)    # 設定擬和的自變數範圍，把時�
 
 plt.plot(xD, yID, 'o', color = 'steelblue', label = 'Data')
 plt.plot(fix1_x_D, logistic(fix1_x_D, r_all_D, N_all_D, C_all_D), '-', color = 'red', label = 'All days', linewidth = 4)
-plt.title("Logistic Fitting Curve (Diamond Princess' ship)", fontsize = 30)
+plt.title("Logistic Fitting Curve (Diamond Princess' ship)\n N = 819", fontsize = 30)
 plt.xlabel("Date (February, 2020)", fontsize = 25)
 plt.ylabel("Population", fontsize = 25)
 date =('04', '05', '06', '07', '08', '09', '10', '12', '13', '15', '16', '17', '18', '19', '20', '26')
